@@ -7,8 +7,8 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_selector('h1',    text: 'Sign') }
-    it { should have_selector('title', text: 'Sign') }
+    it { should have_h1('Sign In') }
+    it { should have_title('Sign In') }
   end
 
   describe 'sign in' do
@@ -17,7 +17,7 @@ describe "Authentication" do
     describe 'with invalid information' do
       before { click_button 'Sign In' }
 
-      it { should have_selector('title', text: 'Sign') }
+      it { should have_title('Sign') }
       it { should have_error_message('Invalid') }
 
       describe 'after visiting another page' do
@@ -31,7 +31,7 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
       before { valid_signin(user) }
 
-      it { should have_selector('title', text: user.name) }
+      it { should have_title(user.name) }
       it { should have_link('Profile', href: user_path(user)) }
       it { should have_link('Sign Out', href: signout_path) }
       it { should_not have_link('Sign In', href: signin_path) }
