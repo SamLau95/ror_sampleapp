@@ -29,6 +29,7 @@ describe 'Static pages' do
           page.should have_selector("li##{item.id}", text: item.content)
         end
       end
+      it { should have_selector 'span', text: '2 microposts' }
     end
   end
 

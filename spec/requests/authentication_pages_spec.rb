@@ -133,6 +133,14 @@ describe 'Authentication' do
         before { put user_path(wrong_user) }
         specify { response.should redirect_to(root_path) }
       end
+
+      describe 'viewing other users\' posts' do
+        before do
+          FactoryGirl.create(:micropost, user: wrong_user)
+          visit user_path(wrong_user)
+        end
+        it { should_not have_link('delete')}
+      end
     end
 
     describe 'as admin user' do
