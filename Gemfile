@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rb-readline'
-
 gem 'rails', '3.2.1'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
@@ -17,6 +15,7 @@ group :development, :test do
   gem 'guard-spork', '1.2.0'  
   gem 'childprocess', '0.3.6'
   gem 'spork', '0.9.2'
+  gem 'commands'
 end
 
 # Gems used only for assets and not required
@@ -29,9 +28,6 @@ end
 
 group :test do
   gem 'capybara', '1.1.2'
-  gem 'rb-fchange', '0.0.5'
-  gem 'rb-notifu', '0.0.4'
-  gem 'win32console', '1.3.0'
   gem 'factory_girl_rails', '4.1.0'
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', '~> 1.0.0.RC1'
